@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1039.0" style="-fx-background-color: #565656;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <AnchorPane layoutY="170.0" prefHeight="412.0" prefWidth="265.0" style="-fx-background-color: #383838;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="11.0" layoutY="27.0" text="Obstacles:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField id="aStarTextField" fx:id="obstField" layoutX="125.0" layoutY="27.0" prefHeight="29.0" prefWidth="130.0" promptText="amount" text="0" />
+            <Label layoutX="11.0" layoutY="57.0" text="Mountains:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField id="aStarTextField" fx:id="mounField" layoutX="125.0" layoutY="58.0" prefHeight="29.0" prefWidth="130.0" promptText="amount" text="0" />
+            <Label layoutX="11.0" layoutY="87.0" text="Highways:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField id="aStarTextField" fx:id="highField" layoutX="125.0" layoutY="88.0" prefHeight="29.0" prefWidth="130.0" promptText="amount" text="0" />
+            <Button fx:id="generateButton" layoutX="125.0" layoutY="123.0" mnemonicParsing="false" onAction="#generateObstaclesFunction" prefHeight="25.0" prefWidth="130.0" text="generate" />
+            <Separator layoutX="9.0" layoutY="149.0" prefHeight="24.0" prefWidth="242.0" />
+            <Button fx:id="resetButton" layoutX="14.0" layoutY="173.0" mnemonicParsing="false" onAction="#resetFunction" prefHeight="25.0" prefWidth="227.0" text="reset" />
+            <Button fx:id="pathButton" layoutX="14.0" layoutY="204.0" mnemonicParsing="false" onAction="#aStarFunction" prefHeight="25.0" prefWidth="227.0" text="generate path" />
+            <Label layoutX="10.0" layoutY="343.0" text="State:" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="stateLabel" layoutX="63.0" layoutY="343.0" prefHeight="21.0" prefWidth="192.0" text="loading..." textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="progressBar" layoutX="9.0" layoutY="383.0" maxHeight="17.0" prefHeight="7.0" prefWidth="242.0" progress="0.0" />
+            <Separator layoutX="7.0" layoutY="229.0" prefHeight="24.0" prefWidth="242.0" />
+            <Label layoutX="11.0" layoutY="253.0" text="Knots:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="knotsLabel" layoutX="128.0" layoutY="253.0" prefHeight="30.0" prefWidth="130.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="9.0" layoutY="283.0" text="Columns:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="columnsLabel" layoutX="128.0" layoutY="283.0" prefHeight="30.0" prefWidth="130.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="9.0" layoutY="313.0" text="Rows:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="rowsLabel" layoutX="128.0" layoutY="313.0" prefHeight="30.0" prefWidth="130.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="diagonalCheck" layoutX="11.0" layoutY="125.0" mnemonicParsing="false" selected="true" text="diagonals" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </AnchorPane>
+      <MenuBar prefHeight="25.0" prefWidth="977.0" style="-fx-background-color: #383838;">
+        <menus>
+          <Menu mnemonicParsing="false" text="Layout">
+               <items>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <TextField fx:id="widthField" promptText="width in px" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <TextField fx:id="heightField" promptText="height in px" />
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <Button id="resizeButton" fx:id="resizeButton" mnemonicParsing="false" onAction="#resizeFunction" text="resize" />
+                     </graphic>
+                  </MenuItem>
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Knots">
+               <items>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <Label text="KnotWidth" textAlignment="CENTER">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <Slider fx:id="knotWidthSlider" max="30.0" min="1.0" onMouseReleased="#slideKnotWidth" showTickLabels="true" showTickMarks="true" />
+                     </graphic>
+                  </MenuItem>
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Draw">
+               <items>
+                  <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                    <content>
+                      <CheckBox fx:id="seenKnotsCheck" text="show seen knots" />
+                    </content>
+                  </CustomMenuItem>
+                  <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <CheckBox fx:id="disKnotsCheck" text="show discovered knots" />
+                     </content>
+                  </CustomMenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
+                     <content>
+                        <CheckBox fx:id="delayCheck" text="delay" />
+                     </content>
+                  </CustomMenuItem>
+                  <CustomMenuItem hideOnClick="false" mnemonicParsing="false">
+                     <content>
+                        <TextField fx:id="delayField" promptText="delay in ms" />
+                     </content>
+                  </CustomMenuItem>
+               </items></Menu>
+        </menus>
+         <effect>
+            <DropShadow />
+         </effect>
+      </MenuBar>
+      <Slider fx:id="widthSlider" layoutX="343.0" layoutY="708.0" max="650.0" min="100.0" onMouseReleased="#slideX" prefHeight="38.0" prefWidth="650.0" showTickLabels="true" showTickMarks="true" value="650.0" />
+      <Slider fx:id="heightSlider" layoutX="311.0" layoutY="58.0" max="650.0" min="100.0" onMouseReleased="#slideY" orientation="VERTICAL" prefHeight="650.0" prefWidth="14.0" showTickLabels="true" showTickMarks="true" value="650.0" />
+      <Button fx:id="miniButton" layoutX="977.0" mnemonicParsing="false" onAction="#minimizeFunction" prefHeight="0.0" prefWidth="31.0" style="-fx-background-color: #383838; -fx-background-radius: 0;" text="-">
+         <font>
+            <Font size="11.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="closeButton" layoutX="1008.0" mnemonicParsing="false" onAction="#exitFunction" prefHeight="0.0" prefWidth="31.0" style="-fx-background-color: #383838; -fx-background-radius: 0;" text="X">
+         <font>
+            <Font size="11.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Pane fx:id="canvasPane" layoutX="343.0" layoutY="51.0" prefHeight="650.0" prefWidth="650.0" />
+      <Label layoutX="427.0" layoutY="-21.0" prefHeight="66.0" prefWidth="123.0" text="aStar - Application" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" contentDisplay="RIGHT" layoutX="847.0" layoutY="25.0" prefHeight="17.0" prefWidth="192.0" text="error" textAlignment="RIGHT" textFill="RED" />
+   </children>
+</AnchorPane>

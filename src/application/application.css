@@ -1,0 +1,123 @@
+.menu-bar {
+	
+}
+
+.menu {
+	
+}
+
+.menu:showing {
+	-fx-background-color: #383838;	
+}
+
+.menu .label {
+	-fx-text-fill: white;
+}
+
+.menu:hover { 
+	-fx-background-color: #6d6c6c;
+}
+
+.menu:showing {
+	-fx-background-color: #6d6c6c;
+}
+
+.menu-item {
+    -fx-background-color: #383838;
+}
+
+.menu-item:hover {
+    -fx-background-color: #4f4f4f;
+    -fx-cursor: hand ;
+}
+
+.separator {
+    -fx-background-color: #383838;
+}
+
+.context-menu {
+	-fx-background-color: #383838;
+}
+
+
+.button {
+	-fx-background-color: #d88800;
+	-fx-background-radius: 2;
+	-fx-text-fill: white;
+}
+.button:hover {
+	-fx-cursor: hand;
+	-fx-background-color: #db7508;
+}
+
+.text-field	{
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-border-style: solid;
+	-fx-border-width: 1.5;
+	-fx-border-color: white;
+	-fx-border-radius: 20;
+}
+.text-field:focused {
+	-fx-border-color: #d88800;
+}
+
+.slider .axis {
+	-fx-tick-label-fill: white;
+}
+
+.check-box .box{
+	
+	-fx-background-color: transparent;
+	
+}
+
+.check-box:selected .mark {
+	-fx-background-color: orange;
+}
+
+.progress-bar {
+	-fx-min-height: 10px;
+	-fx-max-height: 10px;
+	-fx-background-color: transparent;
+}
+
+.progress-bar .track{
+	-fx-background-radius: 10;
+	-fx-background-color: transparent;
+	-fx-min-height: 8px;
+	-fx-max-height: 8px;
+	-fx-padding: 2px;
+}
+.progress-bar .bar{
+	-fx-background-radius: 10;
+	-fx-background-color: orange;
+}
+
+
+#shapeMenu{
+	
+	-fx-background-color: orange;
+	-fx-background-radius: 2;
+	-fx-text-fill: white;
+	-fx-min-width: 150px;
+	
+}
+
+#resizeButton {
+	-fx-min-width: 150px;
+}
+
+#aStarTextField{
+	
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-border-style: solid;
+	-fx-border-width: 1.5;
+	-fx-border-color: white;
+	-fx-border-radius: 5;
+	
+}
+#aStarTextField:focused{
+	-fx-border-color: orange;
+}
