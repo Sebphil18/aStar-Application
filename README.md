@@ -3,7 +3,7 @@
 Deutsch
 ----------
 
-Diese Applikation unterliegt den Standard-Urheberrechtsgesetze.
+Diese Applikation unterliegt den Standard-Urheberrechtsgesetzen.
 
 - Dass bedeutet der Ersteller des Quellcodes behält alle Rechte über diesen.
 - Ihnen ist es untersagt diesen Quellcode zu reproduzieren, verteilen oder abgeleitete Werke von     diesem zu erstellen.
