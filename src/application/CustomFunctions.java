@@ -44,7 +44,7 @@ public class CustomFunctions {
 		        			int rX = x-nX;
 		        			int rY = y-nY;
 		        			
-		        			if(rX*2 == rY*2 && !diagonal) continue;
+		        			if(Math.abs(rX) == Math.abs(rY) && !diagonal) continue;
 		        			
 		        			neightbors.add(knots[nX][nY]);
 		        			
